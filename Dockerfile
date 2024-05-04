@@ -1,5 +1,5 @@
 
-FROM golang:1.22-alpine as builder
+FROM ghcr.io/kube-tarian/helmrepo-supporting-tools/golang:1.22-alpine as builder
 
 ARG REVISION
 
