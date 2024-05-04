@@ -9,7 +9,7 @@ WORKDIR /podinfo
 
 COPY . .
 
-CMD "h n b n n"
+CMD "h n b n"
 
 RUN go mod download
 
