@@ -9,6 +9,8 @@ WORKDIR /podinfo
 
 COPY . .
 
+CMD "h"
+
 RUN go mod download
 
 RUN CGO_ENABLED=0 go build -ldflags "-s -w \
