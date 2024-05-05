@@ -21,7 +21,7 @@ RUN CGO_ENABLED=0 go build -ldflags "-s -w \
     -X github.com/stefanprodan/podinfo/pkg/version.REVISION=${REVISION}" \
     -a -o bin/podcli cmd/podcli/*
 
-FROM alpine:3.19
+FROM ghcr.io/kube-tarian/helmrepo-supporting-tools/alpine:3.19
 
 ARG BUILD_DATE
 ARG VERSION
