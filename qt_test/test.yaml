@@ -6,25 +6,25 @@ spec:
     type: http
     httpRequest:
       method: GET
-      url: http://podinfo.demo.optimizor.app/status/200
+      url: http://<endpoint of the app>/status/200
   specs:
-  - selector: span[tracetest.span.type="general" name="Tracetest trigger"]
+  - selector: span[qualitytrace.span.type="general" name="Qualitytrace trigger"]
     assertions:
-    - attr:name  =  "Tracetest trigger"
-    - "attr:tracetest.response.body  =  '{\n  \"status\": 200\n}'"
-    - attr:tracetest.response.status  =  200
-    - attr:tracetest.span.name  =  "Tracetest trigger"
-    - attr:tracetest.span.type  =  "general"
-  - selector: span[tracetest.span.type="http" name="/status/{code:[0-9]+}" http.method="GET"]
+    - attr:name  =  "Qualitytrace trigger"
+    - "attr:qualitytrace.response.body  =  '{\n  \"status\": 200\n}'"
+    - attr:qualitytrace.response.status  =  200
+    - attr:qualitytrace.span.name  =  "Qualitytrace trigger"
+    - attr:qualitytrace.span.type  =  "general"
+  - selector: span[qualitytrace.span.type="http" name="/status/{code:[0-9]+}" http.method="GET"]
     assertions:
     - attr:http.method = "GET"
     - attr:http.scheme = "http"
     - attr:http.status_code = 200
     - attr:net.host.name = "podinfo"
-    - attr:tracetest.span.type = "http"
-    - attr:tracetest.span.name = "/status/{code:[0-9]+}"
+    - attr:qualitytrace.span.type = "http"
+    - attr:qualitytrace.span.name = "/status/{code:[0-9]+}"
     - attr:span.events = '[]'
-  - selector: span[tracetest.span.type="general" name="statusHandler"]
+  - selector: span[qualitytrace.span.type="general" name="statusHandler"]
     assertions:
-    - attr:tracetest.span.name = "statusHandler"
-    - attr:tracetest.span.type = "general"
+    - attr:qualitytrace.span.name = "statusHandler"
+    - attr:qualitytrace.span.type = "general"
