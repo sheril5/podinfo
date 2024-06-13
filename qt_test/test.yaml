@@ -6,7 +6,7 @@ spec:
     type: http
     httpRequest:
       method: GET
-      url: http://<endpoint of the app>/status/200
+      url: http://podinfo.demo.optimizor.app/status/200
   specs:
   - selector: span[qualitytrace.span.type="general" name="Qualitytrace trigger"]
     assertions:
