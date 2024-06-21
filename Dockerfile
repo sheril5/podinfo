@@ -3,6 +3,9 @@ FROM ghcr.io/kube-tarian/helmrepo-supporting-tools/golang:1.22-alpine as builder
 
 ARG REVISION
 
+# Update and upgrade packages
+RUN apk update && apk upgrade
+
 RUN mkdir -p /podinfo/
 
 WORKDIR /podinfo
@@ -28,6 +31,9 @@ ARG VERSION
 ARG REVISION
 
 LABEL maintainer="stefanprodan"
+
+# Update and upgrade packages
+RUN apk update && apk upgrade
 
 RUN addgroup -S app \
     && adduser -S -G app app \
